@@ -18,8 +18,8 @@ angular.module('booking', [])
       checkedIn: false
     }, {
       id: 2,
-      startTime: new Date('2012-04-23T12:00:00'),
-      endTime: new Date('2012-04-23T13:15:00'),
+      startTime: new Date('2012-04-23T20:00:00'),
+      endTime: new Date('2012-04-23T21:15:00'),
       owner: 'James',
       checkedIn: false
     }];
@@ -69,8 +69,3 @@ angular.module('booking', [])
       },
     }
   });
-
-function Booking(pa){
-  this.pa = pa;
-
-}

@@ -6,7 +6,8 @@ angular.module('availability', [])
     $scope.bookings = BookingData.all();
     
     $scope.isRoomAvailable = RoomData.isAvailable(TimeData.now());
-    $scope.currentBooking = RoomData.getCurrentBooking(TimeData.now())
+    $scope.currentBooking = RoomData.getCurrentBooking(TimeData.now());
+    $scope.nextBooking = RoomData.getNextBooking(TimeData.now());
 
   });
 
