@@ -36,10 +36,10 @@
       </div>
       <div  class="col col-50 text-center">
         <div ng-if="!isAvailable" class="mainButtons">
-          <h1><a >Check-in</a></h1>
+          <h1><a ng-click="checkIn()">Check-in</a></h1>
         </div>
         <div ng-if="checkedIn" class="mainButtons">
-          <h1><a >Check-out</a></h1>
+          <h1><a ng-click="checkOut()">Check-out</a></h1>
         </div>
         <div class="mainButtons">
           <h1><a >Book Room</a></h1>
@@ -47,7 +47,7 @@
       </div>
     </div>
     <div class="next-booking">
-      <h2 style="color: white; ">Next booking is @ {{ nextBooking }} </h2>
+      <h2 style="color: white; ">Next booking is @ {{ nextBooking.startTime | ukdate }} for {{ nextBooking.owner }} </h2>
     </div>
     <div class="col-offset-75">
       <h2><a class="mainButtons" ng-click="goSetTime()">Set Time</a></h2>
