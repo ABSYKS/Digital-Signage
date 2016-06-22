@@ -9,13 +9,29 @@ angular.module('room', [])
     return {
       getRoom: function(){
         return rooms[0];
-          
+
       },
+
+      getBookingById: function (id) {
+        var bookings = rooms[0].bookings.filter(function (booking) {
+          return booking.id == id;
+        });
+        if (bookings.length == 1){
+          return bookings[0];
+        }
+
+        return null;
+      },
+
       getCurrentBooking: function (timeStamp) {
-        var that = this;
-        return rooms[0].bookings.filter(function (booking) {
+        var bookings = rooms[0].bookings.filter(function (booking) {
           return BookingData.isRunning(booking, timeStamp);
         });
+        if (bookings.length == 1) {
+          return bookings[0];
+        }
+
+        return null;
       },
 
       getFutureBookings: function (timeStamp) {
@@ -39,7 +55,11 @@ angular.module('room', [])
 
       isAvailable: function (timeStamp) {
         var filteredBookings = this.getCurrentBooking(timeStamp);
-        return filteredBookings.length == 0;
+        return filteredBookings == null;
+      },
+
+      updateBookings: function () {
+        rooms[0].bookings = BookingData.all();
       }
     }
   });

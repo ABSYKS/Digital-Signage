@@ -6,27 +6,34 @@ angular.module('availability', [])
     };
 
     $scope.checkIn = function() {
-      $state.go("tab.checkIn");
+      BookingData.checkIn($scope.currentBooking);
+      $scope.reload();
     };
 
     $scope.checkOut = function() {
-      $state.go("tab.checkOut");
+      BookingData.checkOut($scope.currentBooking);
+      $scope.reload();
     };
 
-    $scope.bookings = BookingData.all();
+    $scope.room = RoomData.getRoom();
 
-    var time = TimeData.getTime();
-    $scope.isRoomAvailable = RoomData.isAvailable(time);
-    $scope.currentBooking = RoomData.getCurrentBooking(time);
+    $scope.reload = function() {
+      var time = TimeData.getTime();
+      $scope.isAvailable = RoomData.isAvailable(time);
+      $scope.currentBooking = RoomData.getCurrentBooking(time);
 
-    if($scope.isAvailable) {
-      $scope.displayState = "Available";
-    }
-    else {
-      $scope.displayState = $scope.currentBooking.owner;
-    }
+      if ($scope.isAvailable) {
+        $scope.displayState = "Available";
+      }
+      else {
+        $scope.displayState = $scope.currentBooking.owner;
+      }
 
-    $scope.nextBooking = RoomData.getNextBooking(time);
+      $scope.nextBooking = RoomData.getNextBooking(time);
+    };
+
+    $scope.reload(); //inital load
+
   });
 
 
