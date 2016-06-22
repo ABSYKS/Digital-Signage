@@ -1,8 +1,6 @@
 angular.module('booking', [])
 
   .factory('BookingData', function () {
-    // Might use a resource here that returns a JSON array
-
     // Some fake testing data
     var bookings = [{
       id: 0,
@@ -58,14 +56,16 @@ angular.module('booking', [])
           }
         }
         return null;
+      },
+      
+      checkIn: function (booking) {
+        booking.checkedIn = true;
+      },
+
+      checkOut: function (booking) {
+        booking.checkedIn = false;
       }
     };
-  })
-
-  .factory('TimeData', function () {
-    return {
-      now: function () {
-        return new Date("2012-04-23T18:31:00");
-      },
-    }
   });
+
+

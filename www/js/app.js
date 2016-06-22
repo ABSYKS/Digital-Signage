@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in booking.js
 // 'starter.controllers' is found in availability.js
-angular.module('starter', ['ionic', 'availability', 'booking', 'room'])
+angular.module('starter', ['ionic', 'availability', 'checkIn', 'booking', 'room', 'time'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

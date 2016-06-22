@@ -1,14 +1,15 @@
 angular.module('availability', [])
 
-  .controller('AvailabilityCtrl', function ($scope, BookingData, TimeData, RoomData) {
-    $scope.testBooking = BookingData.getBooking(0);
-    $scope.now = TimeData.now();
+  .controller('AvailabilityCtrl', function ($scope, BookingData, RoomData, TimeData) {
+    TimeData.setTime(new Date("2012-04-23T19:31:00"));
+    TimeData.setTestMode(true);
+    
     $scope.bookings = BookingData.all();
     
-    $scope.isRoomAvailable = RoomData.isAvailable(TimeData.now());
-    $scope.currentBooking = RoomData.getCurrentBooking(TimeData.now());
-    $scope.nextBooking = RoomData.getNextBooking(TimeData.now());
-
+    var time = TimeData.getTime();
+    $scope.isRoomAvailable = RoomData.isAvailable(time);
+    $scope.currentBooking = RoomData.getCurrentBooking(time);
+    $scope.nextBooking = RoomData.getNextBooking(time);
   });
 
 
