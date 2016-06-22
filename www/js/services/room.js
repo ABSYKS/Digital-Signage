@@ -7,6 +7,10 @@ angular.module('room', [])
     }];
 
     return {
+      getRoom: function(){
+        return rooms[0];
+          
+      },
       getCurrentBooking: function (timeStamp) {
         var that = this;
         return rooms[0].bookings.filter(function (booking) {

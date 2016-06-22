@@ -67,6 +67,10 @@ angular.module('booking', [])
         booking.checkedIn = false;
       },
       
+      isCheckedIn: function(booking) {
+        return booking.checkedIn;
+      },
+      
       getNextId: function() {
         return idCount++;
       },

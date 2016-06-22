@@ -3,8 +3,7 @@
     <style>
 
       ion-content{
-
-        background-image: url("../img/available-bg.png");
+        background-color: red;
         background-size: 100% auto;
       }
 
@@ -30,15 +29,17 @@
       }
     </style>
     <div class="row">
-
-
+      <style ng-if="isAvailable">ion-content{ background-image: url("../img/available-bg.png");}</style>
       <div class="sidebar col col-50 text-center">
-        <h1 style="padding: 15px; margin:20px">Norway {{ RoomName }}</h1>
-        <h1>Available</h1>
+        <h1 style="padding: 15px; margin:20px">{{ room.name }}</h1>
+        <h1>{{ displayState }}</h1>
       </div>
       <div  class="col col-50 text-center">
-        <div class="mainButtons">
+        <div ng-if="!isAvailable" class="mainButtons">
           <h1><a >Check-in</a></h1>
+        </div>
+        <div ng-if="checkedIn" class="mainButtons">
+          <h1><a >Check-out</a></h1>
         </div>
         <div class="mainButtons">
           <h1><a >Book Room</a></h1>
@@ -46,10 +47,10 @@
       </div>
     </div>
     <div class="next-booking">
-      <h2 style="color: white; ">Next booking is @ {{ time }} </h2>
+      <h2 style="color: white; ">Next booking is @ {{ nextBooking }} </h2>
     </div>
     <div class="col-offset-75">
-      <h2><a class="mainButtons" onclick="alert()">Set Time</a></h2>
+      <h2><a class="mainButtons" href="#/dash/config">Set Time</a></h2>
     </div>
   </ion-content>
 </ion-view>
