@@ -13,13 +13,15 @@ angular.module('availability', [])
       $state.go("tab.checkOut");
     };
 
-    $scope.bookings = BookingData.all();
+    $scope.room = RoomData.getRoom();
 
     var time = TimeData.getTime();
     console.log(time);
     $scope.isAvailable = RoomData.isAvailable(time);
     $scope.currentBooking = RoomData.getCurrentBooking(time);
     
+
+    console.log($scope.currentBooking);
 
     if($scope.isAvailable) {
       $scope.displayState = "Available";
