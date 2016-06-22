@@ -47,7 +47,7 @@
       </div>
     </div>
     <div class="next-booking">
-      <h2 style="color: white; ">Next booking is @ {{ nextBooking }} </h2>
+      <h2 style="color: white; ">Next booking is @ {{ nextBooking.startTime | ukdate }} for {{ nextBooking.owner }} </h2>
     </div>
     <div class="col-offset-75">
       <h2><a class="mainButtons" ng-click="goSetTime()">Set Time</a></h2>
