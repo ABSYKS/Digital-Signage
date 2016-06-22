@@ -19,7 +19,7 @@ angular.module('availability', [])
     console.log(time);
     $scope.isAvailable = RoomData.isAvailable(time);
     $scope.currentBooking = RoomData.getCurrentBooking(time);
-    
+
 
     console.log($scope.currentBooking);
 
@@ -27,7 +27,7 @@ angular.module('availability', [])
       $scope.displayState = "Available";
     }
     else {
-      $scope.displayState = $scope.currentBooking.owner;
+      $scope.displayState = $scope.currentBooking[0].owner;
     }
 
     $scope.nextBooking = RoomData.getNextBooking(time);

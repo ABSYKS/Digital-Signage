@@ -9,7 +9,7 @@ angular.module('room', [])
     return {
       getRoom: function(){
         return rooms[0];
-          
+
       },
       getCurrentBooking: function (timeStamp) {
         var that = this;
@@ -40,6 +40,10 @@ angular.module('room', [])
       isAvailable: function (timeStamp) {
         var filteredBookings = this.getCurrentBooking(timeStamp);
         return filteredBookings.length == 0;
+      },
+
+      updateBookings: function () {
+        rooms[0].bookings = BookingData.all();
       }
     }
   });
