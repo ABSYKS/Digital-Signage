@@ -1,6 +1,7 @@
 angular.module('booking', [])
 
   .factory('BookingData', function () {
+    var idCount = 2;
     // Some fake testing data
     var bookings = [{
       id: 0,
@@ -57,13 +58,28 @@ angular.module('booking', [])
         }
         return null;
       },
-      
+
       checkIn: function (booking) {
         booking.checkedIn = true;
       },
 
       checkOut: function (booking) {
         booking.checkedIn = false;
+      },
+      
+      getNextId: function() {
+        return idCount++;
+      },
+
+      add: function (startTime, endTime, owner) {
+        var newBooking = {
+          id: this.getNextId(),
+          startTime: startTime,
+          endTime: endTime,
+          owner: owner,
+          checkedIn: false
+        }
+        bookings.push(newBooking);
       }
     };
   });

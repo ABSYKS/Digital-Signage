@@ -1,10 +1,55 @@
 <ion-view view-title="Availability">
-  <ion-content class="padding">
-    <h2>Welcome to room booking</h2>
-    <div>
-      <p>{{isRoomAvailable}}</p>
-      <p>{{currentBooking}}</p>
-      <p>{{nextBooking}}</p>
+  <ion-content>
+    <style>
+
+      ion-content{
+
+        background-image: url("../img/available-bg.png");
+        background-size: 100% auto;
+      }
+
+      .next-booking{
+        background-color: #42484B;
+        padding: 30px;
+        margin-top: 35px;
+        margin-bottom: 14px;
+      }
+      .mainButtons{
+        width: 50%;
+        padding:15px;
+        margin: 20px;
+        background-color: #42484B;
+        color: white;
+      }
+      .mainButtons:hover{
+        background-color: #A5A4A4;
+      }
+      a{
+        color: white;
+        font-weight:bold;
+      }
+    </style>
+    <div class="row">
+
+
+      <div class="sidebar col col-50 text-center">
+        <h1 style="padding: 15px; margin:20px">Norway {{ RoomName }}</h1>
+        <h1>Available</h1>
+      </div>
+      <div  class="col col-50 text-center">
+        <div class="mainButtons">
+          <h1><a >Check-in</a></h1>
+        </div>
+        <div class="mainButtons">
+          <h1><a >Book Room</a></h1>
+        </div>
+      </div>
+    </div>
+    <div class="next-booking">
+      <h2 style="color: white; ">Next booking is @ {{ time }} </h2>
+    </div>
+    <div class="col-offset-75">
+      <h2><a class="mainButtons" onclick="alert()">Set Time</a></h2>
     </div>
   </ion-content>
 </ion-view>
