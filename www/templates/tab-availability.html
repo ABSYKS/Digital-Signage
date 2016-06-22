@@ -1,4 +1,4 @@
-<ion-view view-title="Availability">
+<ion-view cache-view="false" view-title="Availability">
   <ion-content>
     <style>
 
@@ -49,7 +49,7 @@
       <h2 style="color: white; ">Next booking is @ {{ time }} </h2>
     </div>
     <div class="col-offset-75">
-      <h2><a class="mainButtons" onclick="alert()">Set Time</a></h2>
+      <h2><a class="mainButtons" ng-click="goSetTime()">Set Time</a></h2>
     </div>
   </ion-content>
 </ion-view>

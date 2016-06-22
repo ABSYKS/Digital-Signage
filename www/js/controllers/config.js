@@ -1,11 +1,11 @@
 angular.module('config', [])
 
-  .controller('ConfigCtrl', function ($scope, $location, TimeData) {
+  .controller('ConfigCtrl', function ($scope, $state, TimeData) {
     $scope.setTime = function() {
       var stamp = $scope.form.date + "T" + $scope.form.time;
       TimeData.setTime(new Date(stamp));
       TimeData.setTestMode(true);
-      $location.path("/tab/dash");
+      $state.go("tab.dash");
     };
 
     var currentTime = TimeData.getTime();
