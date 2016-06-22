@@ -101,6 +101,7 @@ angular.module('booking', [])
 
       checkOut: function (booking) {
         booking.checkedIn = false;
+        booking.endTime = new Date();
       },
 
       isCheckedIn: function(booking) {

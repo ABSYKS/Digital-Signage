@@ -7,22 +7,22 @@ angular.module('availability', [])
 
     $scope.checkIn = function() {
       BookingData.checkIn($scope.currentBooking);
+      $scope.reload();
     };
 
     $scope.checkOut = function() {
       BookingData.checkOut($scope.currentBooking);
+      $scope.reload();
     };
 
     $scope.room = RoomData.getRoom();
 
+    $scope.reload = function() {
     var time = TimeData.getTime();
-    console.log(time);
     $scope.isAvailable = RoomData.isAvailable(time);
     $scope.currentBooking = RoomData.getCurrentBooking(time);
 
-    console.log($scope.currentBooking);
-
-    if($scope.isAvailable) {
+    if ($scope.isAvailable) {
       $scope.displayState = "Available";
     }
     else {
@@ -30,6 +30,10 @@ angular.module('availability', [])
     }
 
     $scope.nextBooking = RoomData.getNextBooking(time);
+    };
+
+    $scope.reload(); //inital load
+
   });
 
 
