@@ -18,18 +18,18 @@ angular.module('availability', [])
     $scope.room = RoomData.getRoom();
 
     $scope.reload = function() {
-    var time = TimeData.getTime();
-    $scope.isAvailable = RoomData.isAvailable(time);
-    $scope.currentBooking = RoomData.getCurrentBooking(time);
+      var time = TimeData.getTime();
+      $scope.isAvailable = RoomData.isAvailable(time);
+      $scope.currentBooking = RoomData.getCurrentBooking(time);
 
-    if ($scope.isAvailable) {
-      $scope.displayState = "Available";
-    }
-    else {
-      $scope.displayState = $scope.currentBooking.owner;
-    }
+      if ($scope.isAvailable) {
+        $scope.displayState = "Available";
+      }
+      else {
+        $scope.displayState = $scope.currentBooking.owner;
+      }
 
-    $scope.nextBooking = RoomData.getNextBooking(time);
+      $scope.nextBooking = RoomData.getNextBooking(time);
     };
 
     $scope.reload(); //inital load
