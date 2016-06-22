@@ -71,6 +71,15 @@ angular.module('starter', ['ionic', 'availability', 'config', 'checkIn', 'bookin
             controller: 'CheckOutCtrl'
           }
         }
+      })
+      .state('tab.book', {
+        url: '/book-room',
+        views: {
+          'tab-checkOut': {
+            templateUrl: 'templates/tab-book-room.html',
+            controller: 'BookRoomCtrl'
+          }
+        }
       });
 
     // if none of the above states are matched, use this as the fallback

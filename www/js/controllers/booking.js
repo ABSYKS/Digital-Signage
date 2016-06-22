@@ -1,5 +1,5 @@
 angular.module('booking', [])
 
-  .controller('BookingCtrl', function ($scope, BookingData) {
-    
+  .controller('BookRoomCtrl', function ($scope, BookingData) {
+
   });
