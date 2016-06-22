@@ -36,10 +36,10 @@
       </div>
       <div  class="col col-50 text-center">
         <div ng-if="!isAvailable" class="mainButtons">
-          <h1><a >Check-in</a></h1>
+          <h1><a ng-click="checkIn()">Check-in</a></h1>
         </div>
         <div ng-if="checkedIn" class="mainButtons">
-          <h1><a >Check-out</a></h1>
+          <h1><a ng-click="checkOut()">Check-out</a></h1>
         </div>
         <div class="mainButtons">
           <h1><a >Book Room</a></h1>
