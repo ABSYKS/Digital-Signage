@@ -35,7 +35,7 @@
         <h1>{{ displayState }}</h1>
       </div>
       <div  class="col col-50 text-center">
-        <div ng-if="!isAvailable" class="mainButtons">
+        <div ng-if="isAvailable" class="mainButtons">
           <h1><a ng-click="checkIn()">Check-in</a></h1>
         </div>
         <div ng-if="checkedIn" class="mainButtons">
