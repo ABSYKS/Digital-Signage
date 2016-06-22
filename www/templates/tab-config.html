@@ -1,0 +1,27 @@
+<ion-view view-title="Configuration">
+  <ion-content>
+    <h2>Demo Settings</h2>
+    <p>As you're aware this is a demo, so we're giving you the opportunity to set the time that the app is going to think it is - to simulate the past/future :)</p>
+    <form>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="control-label">Date</label>
+        </div>
+        <div class="col-md-6">
+          <input type="text" ng-model="form.date" class="form-control" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="control-label">Time</label>
+        </div>
+        <div class="col-md-6">
+          <input type="text" ng-model="form.time" class="form-control" />
+        </div>
+      </div>
+      <div class="text-right">
+        <button type="button" class="btn btn-primary" ng-click="setTime()">Set Time</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

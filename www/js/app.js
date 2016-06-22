@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in booking.js
 // 'starter.controllers' is found in availability.js
-angular.module('starter', ['ionic', 'availability', 'checkIn', 'booking', 'room', 'time'])
+angular.module('starter', ['ionic', 'availability', 'checkIn', 'config', 'booking', 'room', 'time'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -39,6 +39,16 @@ angular.module('starter', ['ionic', 'availability', 'checkIn', 'booking', 'room'
   })
 
   // Each tab has its own nav history stack:
+
+  .state('tab.config', {
+      url: '/config',
+      views: {
+        'tab-dash': {
+          templateUrl: 'templates/tab-config.html',
+          controller: 'ConfigCtrl'
+        }
+      }
+    })
 
   .state('tab.dash', {
     url: '/dash',
