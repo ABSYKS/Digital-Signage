@@ -21,6 +21,42 @@ angular.module('booking', [])
       endTime: new Date('2012-04-23T21:15:00'),
       owner: 'James',
       checkedIn: false
+    }, {
+      id: 3,
+      startTime: new Date('2012-04-23T14:30:00'),
+      endTime: new Date('2012-04-23T15:30:00'),
+      owner: 'James',
+      checkedIn: false
+    }, {
+      id: 4,
+      startTime: new Date('2016-06-22T17:30:00'),
+      endTime: new Date('2012-04-22T18:00:00'),
+      owner: 'John',
+      checkedIn: false
+    }, {
+      id: 5,
+      startTime: new Date('2016-06-22T18:00:00'),
+      endTime: new Date('2016-06-22T18:30:00'),
+      owner: 'Brian',
+      checkedIn: false
+    }, {
+      id: 6,
+      startTime: new Date('2016-06-22T18:30:00'),
+      endTime: new Date('2016-06-22T19:00:00'),
+      owner: 'Julie',
+      checkedIn: false
+    }, {
+      id: 7,
+      startTime: new Date('2016-06-22T09:30:00'),
+      endTime: new Date('2016-06-22T10:00:00'),
+      owner: 'Jack',
+      checkedIn: false
+    }, {
+      id: 8,
+      startTime: new Date('2016-06-24T10:30:00'),
+      endTime: new Date('2016-06-24T11:00:00'),
+      owner: 'Simon',
+      checkedIn: false
     }];
 
     return {
@@ -29,6 +65,10 @@ angular.module('booking', [])
       },
 
       isRunning: function (booking, timeStamp) {
+        if(booking.id === 5) {
+          console.log("Booking 5 start:" + booking.startTime);
+          console.log("Booking 5 end:" + booking.endTime);
+        }
         return booking.startTime < timeStamp && booking.endTime > timeStamp;
       },
 
@@ -66,11 +106,11 @@ angular.module('booking', [])
       checkOut: function (booking) {
         booking.checkedIn = false;
       },
-      
+
       isCheckedIn: function(booking) {
         return booking.checkedIn;
       },
-      
+
       getNextId: function() {
         return idCount++;
       },

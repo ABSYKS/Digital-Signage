@@ -5,11 +5,21 @@ angular.module('availability', [])
       $state.go("tab.config");
     };
 
+    $scope.checkIn = function() {
+      $state.go("tab.checkIn");
+    };
+
+    $scope.checkOut = function() {
+      $state.go("tab.checkOut");
+    };
+
     $scope.bookings = BookingData.all();
 
     var time = TimeData.getTime();
+    console.log(time);
     $scope.isAvailable = RoomData.isAvailable(time);
     $scope.currentBooking = RoomData.getCurrentBooking(time);
+    
 
     if($scope.isAvailable) {
       $scope.displayState = "Available";

@@ -76,4 +76,15 @@ angular.module('starter', ['ionic', 'availability', 'config', 'checkIn', 'bookin
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/tab/dash');
 
+  })
+
+  .filter("ukdate", function($filter){
+  var angularDateFilter = $filter('date');
+
+    return function(input){
+      if (input == null) { return ""; }
+
+      var _date = angularDateFilter(input, 'dd MMM yyyy HH:mm');
+      return _date;
+    }
   });
