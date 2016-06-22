@@ -10,6 +10,14 @@ angular.module('availability', [])
     var time = TimeData.getTime();
     $scope.isRoomAvailable = RoomData.isAvailable(time);
     $scope.currentBooking = RoomData.getCurrentBooking(time);
+
+    if($scope.isAvailable) {
+      $scope.displayState = "Available";
+    }
+    else {
+      $scope.displayState = $scope.currentBooking.owner;
+    }
+
     $scope.nextBooking = RoomData.getNextBooking(time);
   });
 
