@@ -6,11 +6,11 @@ angular.module('availability', [])
     };
 
     $scope.checkIn = function() {
-      $state.go("tab.checkIn");
+      BookingData.checkIn($scope.currentBooking);
     };
 
     $scope.checkOut = function() {
-      $state.go("tab.checkOut");
+      BookingData.checkOut($scope.currentBooking);
     };
 
     $scope.room = RoomData.getRoom();
@@ -20,14 +20,13 @@ angular.module('availability', [])
     $scope.isAvailable = RoomData.isAvailable(time);
     $scope.currentBooking = RoomData.getCurrentBooking(time);
 
-
     console.log($scope.currentBooking);
 
     if($scope.isAvailable) {
       $scope.displayState = "Available";
     }
     else {
-      $scope.displayState = $scope.currentBooking[0].owner;
+      $scope.displayState = $scope.currentBooking.owner;
     }
 
     $scope.nextBooking = RoomData.getNextBooking(time);

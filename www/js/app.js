@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in booking.js
 // 'starter.controllers' is found in availability.js
-angular.module('starter', ['ionic', 'availability', 'config', 'checkIn', 'booking', 'room', 'time'])
+angular.module('starter', ['ionic', 'availability', 'config', 'booking', 'room', 'time'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -53,22 +53,6 @@ angular.module('starter', ['ionic', 'availability', 'config', 'checkIn', 'bookin
           'tab-dash': {
             templateUrl: 'templates/tab-config.html',
             controller: 'ConfigCtrl'
-          }
-        }
-      })
-      .state('tab.checkIn', {
-        url: '/checkIn',
-        views: {
-          'tab-checkIn': {
-            controller: 'CheckInCtrl'
-          }
-        }
-      })
-      .state('tab.checkOut', {
-        url: '/checkOut',
-        views: {
-          'tab-checkOut': {
-            controller: 'CheckOutCtrl'
           }
         }
       });

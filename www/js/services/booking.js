@@ -42,7 +42,7 @@ angular.module('booking', [])
     }, {
       id: 6,
       startTime: new Date('2016-06-22T18:30:00'),
-      endTime: new Date('2016-06-22T19:00:00'),
+      endTime: new Date('2016-06-22T23:00:00'),
       owner: 'Julie',
       checkedIn: false
     }, {
@@ -65,7 +65,7 @@ angular.module('booking', [])
       },
 
       isRunning: function (booking, timeStamp) {
-        return booking.startTime <= timeStamp && booking.endTime >= timeStamp;
+        return booking.startTime <= timeStamp && booking.endTime > timeStamp;
       },
 
       bookingStartsSoon: function (booking, timeStampNow) {
