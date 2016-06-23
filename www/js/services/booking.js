@@ -99,9 +99,9 @@ angular.module('booking', [])
         booking.checkedIn = true;
       },
 
-      checkOut: function (booking) {
+      checkOut: function (booking, timeStamp) {
         booking.checkedIn = false;
-        booking.endTime = new Date();
+        booking.endTime = timeStamp;
       },
 
       isCheckedIn: function(booking) {
@@ -119,7 +119,7 @@ angular.module('booking', [])
           endTime: endTime,
           owner: owner,
           checkedIn: false
-        }
+        };
         bookings.push(newBooking);
       }
     };

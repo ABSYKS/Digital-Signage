@@ -11,7 +11,7 @@ angular.module('availability', [])
     };
 
     $scope.checkOut = function() {
-      BookingData.checkOut($scope.currentBooking);
+      BookingData.checkOut($scope.currentBooking, $scope.time);
       $scope.reload();
     };
 
@@ -19,6 +19,7 @@ angular.module('availability', [])
 
     $scope.reload = function() {
       var time = TimeData.getTime();
+      $scope.time = time;
       $scope.isAvailable = RoomData.isAvailable(time);
       $scope.currentBooking = RoomData.getCurrentBooking(time);
 
