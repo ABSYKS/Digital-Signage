@@ -32,6 +32,8 @@ angular.module('availability', [])
       $scope.nextBooking = RoomData.getNextBooking(time);
     };
 
+    $scope.time = TimeData.getTime();
+
     $scope.reload(); //inital load
 
   });
