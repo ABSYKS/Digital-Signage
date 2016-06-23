@@ -11,7 +11,7 @@ angular.module('config', [])
 
     var currentTime = TimeData.getTime();
     $scope.form = {
-      date: currentTime.getYear() + "-" + (currentTime.getMonth() + 1) + "-" + currentTime.getDay(),
-      time: currentTime.getHours() + ":" + currentTime.getMinutes()
+      date: '2016-06-22',
+      time: '17:30:00'
     };
   });
