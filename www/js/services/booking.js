@@ -1,8 +1,7 @@
 angular.module('booking', [])
 
   .factory('BookingData', function () {
-    // Might use a resource here that returns a JSON array
-
+    var idCount = 2;
     // Some fake testing data
     var bookings = [{
       id: 0,
@@ -18,9 +17,45 @@ angular.module('booking', [])
       checkedIn: false
     }, {
       id: 2,
-      startTime: new Date('2012-04-23T12:00:00'),
-      endTime: new Date('2012-04-23T13:15:00'),
+      startTime: new Date('2012-04-23T20:00:00'),
+      endTime: new Date('2012-04-23T21:15:00'),
       owner: 'James',
+      checkedIn: false
+    }, {
+      id: 3,
+      startTime: new Date('2012-04-23T14:30:00'),
+      endTime: new Date('2012-04-23T15:30:00'),
+      owner: 'James',
+      checkedIn: false
+    }, {
+      id: 4,
+      startTime: new Date('2016-06-22T17:30:00'),
+      endTime: new Date('2016-06-22T18:00:00'),
+      owner: 'John',
+      checkedIn: false
+    }, {
+      id: 5,
+      startTime: new Date('2016-06-22T18:00:00'),
+      endTime: new Date('2016-06-22T18:30:00'),
+      owner: 'Brian',
+      checkedIn: false
+    }, {
+      id: 6,
+      startTime: new Date('2016-06-23T07:00:00'),
+      endTime: new Date('2016-06-23T10:00:00'),
+      owner: 'Julie',
+      checkedIn: false
+    }, {
+      id: 7,
+      startTime: new Date('2016-06-22T09:30:00'),
+      endTime: new Date('2016-06-22T10:00:00'),
+      owner: 'Jack',
+      checkedIn: false
+    }, {
+      id: 8,
+      startTime: new Date('2016-06-24T10:30:00'),
+      endTime: new Date('2016-06-24T11:00:00'),
+      owner: 'Simon',
       checkedIn: false
     }];
 
@@ -30,7 +65,7 @@ angular.module('booking', [])
       },
 
       isRunning: function (booking, timeStamp) {
-        return booking.startTime < timeStamp && booking.endTime > timeStamp;
+        return booking.startTime <= timeStamp && booking.endTime > timeStamp;
       },
 
       bookingStartsSoon: function (booking, timeStampNow) {
@@ -58,19 +93,36 @@ angular.module('booking', [])
           }
         }
         return null;
+      },
+
+      checkIn: function (booking) {
+        booking.checkedIn = true;
+      },
+
+      checkOut: function (booking, timeStamp) {
+        booking.checkedIn = false;
+        booking.endTime = timeStamp;
+      },
+
+      isCheckedIn: function(booking) {
+        return booking.checkedIn;
+      },
+
+      getNextId: function() {
+        return idCount++;
+      },
+
+      add: function (startTime, endTime, owner) {
+        var newBooking = {
+          id: this.getNextId(),
+          startTime: startTime,
+          endTime: endTime,
+          owner: owner,
+          checkedIn: false
+        };
+        bookings.push(newBooking);
       }
     };
-  })
-
-  .factory('TimeData', function () {
-    return {
-      now: function () {
-        return new Date("2012-04-23T18:31:00");
-      },
-    }
   });
 
-function Booking(pa){
-  this.pa = pa;
 
-}
