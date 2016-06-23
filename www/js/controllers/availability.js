@@ -15,6 +15,10 @@ angular.module('availability', [])
       $scope.reload();
     };
 
+    $scope.bookRoom = function() {
+      $state.go("tab.book");
+    };
+
     $scope.room = RoomData.getRoom();
 
     $scope.reload = function() {
