@@ -71,6 +71,17 @@ angular.module('starter', ['ionic', 'availability', 'config', 'booking', 'room',
 
   })
 
+  .filter("timeonly", function($filter){
+    var angularDateFilter = $filter('date');
+
+    return function(input){
+      if (input == null) { return ""; }
+
+      var _date = angularDateFilter(input, 'HH:mm');
+      return _date;
+    }
+  })
+
   .filter("ukdate", function($filter){
   var angularDateFilter = $filter('date');
 

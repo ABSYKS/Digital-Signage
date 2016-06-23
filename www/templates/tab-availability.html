@@ -33,10 +33,12 @@
       <div class="sidebar col col-50 text-center">
         <h1 style="padding: 15px; margin:20px">{{ room.name }}</h1>
         <h1>{{ displayState }}</h1>
+        <p class="large" ng-if="!isAvailable">Until {{ currentBooking.startTime | timeonly }}</p>
+        <p class="large" ng-if="currentBooking != null && currentBooking.checkedIn">Checked In</p>
       </div>
       <div  class="col col-50 text-center">
         <div ng-if="!isAvailable && !currentBooking.checkedIn" class="mainButtons">
-          <h1><a ng-click="checkIn()">Check-in</a></h1>
+          <h1><a class="btn" ng-click="checkIn()">Check-in</a></h1>
         </div>
         <div ng-if="currentBooking != null && currentBooking.checkedIn" class="mainButtons">
           <h1><a ng-click="checkOut()">Check-out</a></h1>

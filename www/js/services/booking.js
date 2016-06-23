@@ -41,8 +41,8 @@ angular.module('booking', [])
       checkedIn: false
     }, {
       id: 6,
-      startTime: new Date('2016-06-22T18:30:00'),
-      endTime: new Date('2016-06-22T23:00:00'),
+      startTime: new Date('2016-06-23T07:00:00'),
+      endTime: new Date('2016-06-23T10:00:00'),
       owner: 'Julie',
       checkedIn: false
     }, {
